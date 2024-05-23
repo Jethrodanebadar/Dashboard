@@ -1,7 +1,7 @@
 :root{
     --primary: #81936F;
     --secondary: #B7C6A9;
-    --accent: #B7C6A9;
+    --accent: #CCCC7D;
     --dark: #0C0C0B;
     --light: #FAFAF9;
 }
@@ -9,52 +9,134 @@
 body{
     margin:0px;
     padding: 0px;
+    background-color:var(--light);
     height: 100vh;
 }
 
 .fullscreen-container{
-    background-color:antiquewhite;
+    background-color:var(--light);
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 3fr 1.3fr;
     grid-template-rows: repeat(2, auto);
     /* overflow: hidden; */
 }
 
 .header{
     max-width: 95%;
-    background-color: aqua;
-    grid-area: 1/2/1/-1;
-    max-height: 40%;
+    grid-area: 1/2/2/-1;
+    max-height: 10%;
+    
+}
+
+.dashboard{
+    grid-area: 1/1/4/2;
+    background-color:var(--primary);
+    padding: .5rem 4rem;
+}
+
+.main-container{
+    grid-area: 2/2/2/3;
+    padding: .8rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 20fr;
+    background-color:#dfe4dd; 
+    
+}
+
+.side-display{
+    grid-area: 2/3/2/4;
+    /* background-color: aqua; */
+    padding: .9rem 2rem;
+    background-color:#dfe4dd; 
+}
+
+.announcements{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary);
+    padding: 1rem 2.5rem;
+    gap: .5rem;
+}
+
+.trending{
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary);
+    padding: 1rem 2.5rem;
+    gap: .5rem; 
+}
+
+h2{
+    text-align: center;
+}
+
+.projects-grid{
+    padding: 1rem;
+    grid-area: 2/1/3/3;
+    /* background-color: antiquewhite; */
+    display: grid;
+    border: #0C0C0B;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
+}
+
+.project-card{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background-color: var(--secondary);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    padding: 0rem 1rem;
 }
 
 .upper-half{
     max-height: 2rem;
-    background-color: aliceblue;
+    background-color: var(--light);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 95%;
-    padding: 2rem 5rem;
+    max-width: 100%;
+    padding: 2rem 4rem;
 }
 
 .lower-half{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    
 }
 
 .second-information{
-    /* background-color: rgb(59, 122, 177); */
+    width: 100%;
+    background-color: var(--light);
     display: flex;
-    padding: 2em;
+    padding: 1.5em 2.5rem;
     align-items: center;
     gap: 1rem;
+    justify-content: space-between;
+    max-height: 2rem;
+    margin-bottom: 2rem;
+}
+
+.header-intro{
+    display: flex;
+    gap: 1.5rem;
 }
 
 .introduction{
     align-items: center;
-    max-height: 2rem;
+    /* background-color: #FAFAF9; */
 }
 
 #larger-img{
@@ -67,7 +149,29 @@ body{
 .buttons{
     display: flex;
     max-height: 2rem;
-    gap: 1rem;
+    gap: 2rem;
+    
+    
+}
+
+.buttons button{
+    border-radius: 5px;
+    border:transparent;
+    padding: .5rem 2rem;
+    background-color: var(--secondary);
+    transition: transform .5s ease;
+}
+
+button:hover, .icons:hover, .button-icon:hover, svg:hover, #larger-img:hover, input:hover{
+    transform: scale(1.05); 
+    transition-duration: .3s; 
+    color: #fafaf9d7;
+    fill: #fafaf9b9;
+}
+
+input:focus{
+    transform: scale(1.05);
+    transition: transform 1s ease;
 }
 
 .search{
@@ -80,6 +184,8 @@ input{
     border-radius: 10px;
     border: transparent;
     width: 100%;
+    padding: .5rem 1rem;
+    background-color: #8a8a884b;
 }
 
 .first-information{
@@ -92,6 +198,64 @@ input{
     height: auto;
 }
 
+.btn-icons{
+    max-width: 30px;
+    height: auto;
+    /* stroke: var(--light); */
+}
+
+.project-icons{
+    margin-left: .5rem;
+    max-width: 10%;
+    height: auto;
+    justify-self: end;
+}
+
 .first-information h3{
     color: var(--dark);
+}
+
+.btnprojects{
+    /* background-color: #FAFAF9; */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.button-icon{
+    align-items: center;
+ display: flex;
+ gap: 1.5rem;
+ margin-bottom: 1.5rem;
+}
+
+.dashboard-header{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.first-btncontainer{
+    margin-bottom: 5rem;
+}
+
+.dashboard-buttons{
+    display: flex;
+    background-color: transparent;
+    border: transparent;
+    /* color: var(--light); */
+    font-size: 1rem;
+}
+
+.dashboard-buttons:hover .btn-icons {
+    fill: #ff0000; 
+}
+
+/* Apply styles when hovering over the SVG icon */
+.dashboard-buttons:hover svg {
+    /* Add styles to the button */
+    /* For example, change its background color */
+    background-color: #ff0000; /* Change to your desired color */
 }
